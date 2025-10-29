@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Cover Assistant - Professional Analysis Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎸</span>
+                <span class="logo-text"><h2>श्रुचरणा</h2></span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="analyze">Analyze</a>
+                <a href="#" class="nav-link" data-page="about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Home Page -->
+    <section id="homePage" class="page active">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transform Any Song Into
+                    <span class="gradient-text">Your Guitar Cover</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Advanced AI-powered analysis for chords, strumming patterns, fingerpicking, key detection, capo suggestions, and complete rhythm breakdown
+                </p>
+                <div class="hero-features">
+                    <div class="feature-badge">
+                        <span class="badge-icon">🎵</span>
+                        <span>Chord Detection</span>
+                    </div>
+                    <div class="feature-badge">
+                        <span class="badge-icon">🎼</span>
+                        <span>Strumming Patterns</span>
+                    </div>
+                    <div class="feature-badge">
+                        <span class="badge-icon">✨</span>
+                        <span>Plucking Analysis</span>
+                    </div>
+                    <div class="feature-badge">
+                        <span class="badge-icon">🎹</span>
+                        <span>Key Detection</span>
+                    </div>
+                    <div class="feature-badge">
+                        <span class="badge-icon">🎸</span>
+                        <span>Capo Suggestions</span>
+                    </div>
+                    <div class="feature-badge">
+                        <span class="badge-icon">🥁</span>
+                        <span>Rhythm Analysis</span>
+                    </div>
+                </div>
+                <button class="btn-hero" onclick="navigateToPage('analyze')">
+                    Start Analyzing
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-content">
+                        <span class="card-icon">🎸</span>
+                        <span class="card-text">95% Accuracy</span>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-content">
+                        <span class="card-icon">⚡</span>
+                        <span class="card-text">Fast Analysis</span>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-content">
+                        <span class="card-icon">🎯</span>
+                        <span class="card-text">Pro Results</span>
+                    </div>
+                </div>
+                <div class="guitar-illustration">
+                    <div class="guitar-body"></div>
+                    <div class="guitar-neck"></div>
+                    <div class="guitar-strings"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="section-title">Comprehensive Guitar Analysis</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎸</div>
+                    <h3>Smart Chord Detection</h3>
+                    <p>Advanced AI analyzes your song and detects chords with timestamps, showing exactly when to change.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎼</div>
+                    <h3>Multiple Strumming Patterns</h3>
+                    <p>Get recommended strumming patterns plus alternatives based on tempo, energy, and musical style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Plucking Recognition</h3>
+                    <p>Identifies fingerpicking sections and provides detailed plucking patterns with note sequences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎹</div>
+                    <h3>Key Detection & Scale Info</h3>
+                    <p>Automatically detects the key signature and provides scale information for improvisation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎸</div>
+                    <h3>Capo Suggestions</h3>
+                    <p>Get smart capo recommendations to simplify difficult chords and make songs easier to play.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Solo Detection</h3>
+                    <p>Identifies guitar solo and lead sections, showing where melodic playing occurs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Difficulty Analysis</h3>
+                    <p>Each chord rated for difficulty with transition analysis between chord changes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎼</div>
+                    <h3>Chord Fingers</h3>
+                    <p>Visual chord diagrams showing finger positions for standard tuning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Practice Routine</h3>
+                    <p>Get a structured practice plan to master your cover from beginner to performance level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analyze Page -->
+    <section id="analyzePage" class="page">
+        <div class="analyze-container">
+            <!-- Upload Section -->
+            <div class="upload-wrapper" id="uploadWrapper">
+                <div class="upload-header">
+                    <h2>Upload Your Song</h2>
+                    <p>Drop your audio file or click to browse</p>
+                </div>
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-content">
+                        <div class="upload-icon-large">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </div>
+                        <h3>Drag & Drop Your Audio File</h3>
+                        <p class="file-types">Supported: MP3, WAV, OGG, FLAC, M4A (Max 50MB)</p>
+                        <input type="file" id="fileInput" accept=".mp3,.wav,.ogg,.flac,.m4a" hidden>
+                        <button class="btn-browse" id="uploadBtn">Browse Files</button>
+                    </div>
+                </div>
+                <div id="fileName" class="file-name-display"></div>
+                <button class="btn-analyze" id="analyzeBtn" style="display: none;">
+                    <span class="btn-text">Analyze Song</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </div>
+
+            <!-- Loading Section -->
+            <div class="loading-wrapper" id="loadingSection" style="display: none;">
+                <div class="loading-container">
+                    <div class="loading-animation">
+                        <div class="guitar-loader">
+                            <div class="guitar-string"></div>
+                            <div class="guitar-string"></div>
+                            <div class="guitar-string"></div>
+                            <div class="guitar-string"></div>
+                            <div class="guitar-string"></div>
+                            <div class="guitar-string"></div>
+                        </div>
+                    </div>
+                    <h3>Analyzing Your Song...</h3>
+                    <p>This may take 30-60 seconds</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="loading-steps">
+                        <div class="step-item" id="step1">
+                            <span class="step-icon">🎵</span>
+                            <span class="step-text">Extracting audio features</span>
+                        </div>
+                        <div class="step-item" id="step2">
+                            <span class="step-icon">🎸</span>
+                            <span class="step-text">Detecting chords, plucking & solos</span>
+                        </div>
+                        <div class="step-item" id="step3">
+                            <span class="step-icon">🎹</span>
+                            <span class="step-text">Analyzing key & capo options</span>
+                        </div>
+                        <div class="step-item" id="step4">
+                            <span class="step-icon">🎼</span>
+                            <span class="step-text">Generating strumming patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-wrapper" id="resultsSection" style="display: none;">
+                <!-- Results Navigation -->
+                <div class="results-nav">
+                    <button class="results-nav-btn active" data-tab="overview">Overview</button>
+                    <button class="results-nav-btn" data-tab="chords">Chords</button>
+                    <button class="results-nav-btn" data-tab="strumming">Strumming</button>
+                    <button class="results-nav-btn" data-tab="plucking">Plucking</button>
+                    <button class="results-nav-btn" data-tab="key">Key & Scale</button>
+                    <button class="results-nav-btn" data-tab="practice">Practice</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="results-tab active" id="overviewTab">
+                    <div class="results-header">
+                        <h2>Analysis Complete</h2>
+                        <div class="results-actions">
+                            <button class="btn-secondary" id="downloadBtn">
+                                <span>📥</span> Download
+                            </button>
+                            <button class="btn-secondary" id="newSongBtn">
+                                <span>🎵</span> New Song
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-icon">📊</div>
+                            <h3>Song Information</h3>
+                            <div id="songInfo" class="info-list"></div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">🎸</div>
+                            <h3>Playing Breakdown</h3>
+                            <div id="playingBreakdown" class="breakdown-chart"></div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">🎹</div>
+                            <h3>Key & Capo Info</h3>
+                            <div id="keyCapoInfo" class="info-list"></div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">📈</div>
+                            <h3>Difficulty Rating</h3>
+                            <div id="difficultyRating" class="difficulty-display"></div>
+                        </div>
+
+                        <div class="overview-card full-width">
+                            <div class="overview-icon">📈</div>
+                            <h3>Song Structure Timeline</h3>
+                            <div id="timelineChart" class="timeline-container"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chords Tab -->
+                <div class="results-tab" id="chordsTab">
+                    <div class="tab-header">
+                        <h2>🎸 Chord Analysis</h2>
+                        <p>All chords detected with precise timing and difficulty ratings</p>
+                    </div>
+
+                    <div class="chords-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">Unique Chords</span>
+                            <span class="summary-value" id="uniqueChordCount">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Chord Changes</span>
+                            <span class="summary-value" id="chordChangeCount">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Avg Difficulty</span>
+                            <span class="summary-value" id="chordDifficulty">0</span>
+                        </div>
+                    </div>
+
+                    <div class="unique-chords-section">
+                        <h3>Chords Used in This Song</h3>
+                        <div id="uniqueChordsList" class="chords-grid"></div>
+                    </div>
+
+                    <div class="chord-fingerings-section">
+                        <h3>Chord Fingerings</h3>
+                        <div id="chordFingerings" class="fingerings-grid"></div>
+                    </div>
+
+                    <div class="chord-transitions-section">
+                        <h3>Chord Transitions</h3>
+                        <div id="chordTransitions" class="transitions-list"></div>
+                    </div>
+
+                    <div class="chord-progression-section">
+                        <h3>Chord Progression Timeline</h3>
+                        <div id="chordProgression" class="progression-timeline"></div>
+                    </div>
+                </div>
+
+                <!-- Strumming Tab -->
+                <div class="results-tab" id="strummingTab">
+                    <div class="tab-header">
+                        <h2>🎼 Strumming Patterns</h2>
+                        <p>Recommended patterns for your cover with detailed guidance</p>
+                    </div>
+
+                    <div class="strumming-content">
+                        <div class="pattern-recommended">
+                            <div class="pattern-badge">✨ Recommended Pattern</div>
+                            <div id="recommendedPattern"></div>
+                        </div>
+
+                        <div class="patterns-alternatives">
+                            <h3>Alternative Strumming Patterns</h3>
+                            <div id="alternativePatterns"></div>
+                        </div>
+
+                        <div class="fingerpicking-section" id="fingerpickingSection" style="display: none;">
+                            <h3>Fingerpicking Pattern</h3>
+                            <div id="fingerpickingPattern"></div>
+                        </div>
+
+                        <div class="strumming-analysis">
+                            <div class="analysis-card">
+                                <h3>Tempo Analysis</h3>
+                                <div id="tempoAnalysis"></div>
+                            </div>
+                            <div class="analysis-card">
+                                <h3>Energy Analysis</h3>
+                                <div id="energyAnalysis"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plucking Tab -->
+                <div class="results-tab" id="pluckingTab">
+                    <div class="tab-header">
+                        <h2>✨ Plucking & Solo Sections</h2>
+                        <p>Detailed analysis of fingerpicking patterns and guitar solos</p>
+                    </div>
+
+                    <div id="pluckingSections" class="plucking-container"></div>
+                    <div id="soloSections" class="solo-container"></div>
+                </div>
+
+                <!-- Key & Scale Tab -->
+                <div class="results-tab" id="keyTab">
+                    <div class="tab-header">
+                        <h2>🎹 Key & Scale Analysis</h2>
+                        <p>Musical key, scale information, and capo suggestions</p>
+                    </div>
+
+                    <div class="key-analysis-grid">
+                        <div class="key-card">
+                            <div class="key-icon">🎹</div>
+                            <h3>Detected Key</h3>
+                            <div id="detectedKey" class="key-display"></div>
+                        </div>
+
+                        <div class="key-card">
+                            <div class="key-icon">🎸</div>
+                            <h3>Capo Suggestion</h3>
+                            <div id="capoSuggestion" class="capo-display"></div>
+                        </div>
+
+                        <div class="key-card full-width">
+                            <div class="key-icon">🎼</div>
+                            <h3>Scale Information</h3>
+                            <div id="scaleInfo" class="scale-display"></div>
+                        </div>
+
+                        <div class="key-card full-width">
+                            <div class="key-icon">🎯</div>
+                            <h3>Related Keys</h3>
+                            <div id="relatedKeys" class="related-keys-display"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Tab -->
+                <div class="results-tab" id="practiceTab">
+                    <div class="tab-header">
+                        <h2>📚 Practice Routine</h2>
+                        <p>Your personalized learning path to master this song</p>
+                    </div>
+
+                    <div id="practiceRoutine" class="practice-content"></div>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div class="error-wrapper" id="errorSection" style="display: none;">
+                <div class="error-container">
+                    <div class="error-icon">⚠️</div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn-retry" id="retryBtn">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="aboutPage" class="page">
+        <div class="about-container">
+            <div class="about-hero">
+                <h2>About Guitar Cover Assistant</h2>
+                <p class="about-subtitle">Empowering musicians with AI-powered comprehensive analysis</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-section">
+                    <h3>Our Mission</h3>
+                    <p>We believe every musician should have access to professional-grade tools for learning and creating guitar covers. Our AI-powered platform provides comprehensive analysis including chords, strumming patterns, plucking detection, key analysis, capo suggestions, and personalized practice routines.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>Complete Analysis Features</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">🎸</div>
+                            <h4>Chord Detection</h4>
+                            <p>Accurate chord recognition with timestamps and confidence scores</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎼</div>
+                            <h4>Strumming Patterns</h4>
+                            <p>Multiple pattern suggestions with difficulty ratings</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">✨</div>
+                            <h4>Plucking Analysis</h4>
+                            <p>Fingerpicking pattern detection and notation</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎹</div>
+                            <h4>Key Detection</h4>
+                            <p>Automatic key signature and scale information</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎸</div>
+                            <h4>Capo Suggestions</h4>
+                            <p>Smart recommendations to simplify difficult songs</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎯</div>
+                            <h4>Solo Detection</h4>
+                            <p>Identifies guitar solo and lead sections</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">📊</div>
+                            <h4>Difficulty Analysis</h4>
+                            <p>Chord difficulty ratings and transition analysis</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🥁</div>
+                            <h4>Rhythm Analysis</h4>
+                            <p>Tempo, time signature, and groove detection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>How It Works</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="process-number">1</div>
+                            <h4>Upload</h4>
+                            <p>Upload any audio file</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="process-number">2</div>
+                            <h4>Analyze</h4>
+                            <p>AI processes all features</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="process-number">3</div>
+                            <h4>Learn</h4>
+                            <p>Get comprehensive results</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="process-number">4</div>
+                            <h4>Master</h4>
+                            <p>Practice and perfect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Guitar Cover Assistant</h4>
+                <p>Comprehensive AI-powered music analysis for guitarists</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#" onclick="navigateToPage('home')">Home</a>
+                <a href="#" onclick="navigateToPage('analyze')">Analyze</a>
+                <a href="#" onclick="navigateToPage('about')">About</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Documentation</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Guitar Cover Assistant. Made with ❤️ for musicians.</p>
+        </div>
+    </footer>
+    <!-- Chord Detail Modal -->
+    <div class="modal-overlay" id="chordModal" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalChordName">C Major</h2>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-content">
+                <div class="chord-visual">
+                    <div class="chord-diagram" id="chordDiagram"></div>
+                    <div class="chord-photo" id="chordPhoto">
+                        <div class="fret-diagram">
+                            <div class="fret-numbers"></div>
+                            <div class="strings-container"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chord-info-section">
+                    <div class="info-box">
+                        <h3>🎸 Finger Positions</h3>
+                        <div id="fingerPositions" class="finger-positions"></div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>💡 Playing Tips</h3>
+                        <ul id="chordTips" class="tips-list"></ul>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📊 Chord Information</h3>
+                        <div id="chordMetadata" class="metadata-grid"></div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>🔄 Common Transitions</h3>
+                        <div id="commonTransitions" class="transitions-chips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
